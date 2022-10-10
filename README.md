@@ -15,3 +15,14 @@ See the [vignette](https://mfasiolo.github.io/mgcViz/articles/mgcviz.html) for a
 
 3. **special plots**: differences-between-smooths plots in 1 or 2D and plotting multiple slices of multidimensional smooth effects.
 
+# How to linstall
+```R
+install.packages("devtools")
+install.packages("remotes")
+devtools::install_github('ningyile/mgcViz')
+```
+
+# Features
+添加3d数据，方便之后在[Plotly包](https://github.com/plotly/plotly.R)中绘制个性化3d图形
+
+Ehanced 3D data output so that you can create customized 3D Surface plots with the [Plotly  package](https://github.com/plotly/plotly.R) later.
