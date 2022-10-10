@@ -158,6 +158,17 @@ plotRGL.mgcv.smooth.2D <- function(x, se = TRUE, n = 40, residuals = FALSE, type
   # Draws non-parametric density
   n <- length(P$x)
   rgl::surface3d(P$x, P$y, matrix(P$fit, n, n), color="#FF2222", alpha=0.5)
+
+  # 添加3d数据，方便之后在plotly包中绘制3d图形
+  # Ehanced 3D data output so that you can create custom 3D Surface plots with the Plotly package later.
+  assign('surface_data_3d', 
+          list(x=P$x,
+               y=P$y,
+               z=matrix(P$fit, n, n),
+               z_upper_ci=matrix(P$fit + P$se, n, n),
+               z_lower_ci=matrix(P$fit - P$se, n, n)),
+          .GlobalEnv)
+          
   if( P$plotCI ){
     rgl::surface3d(P$x, P$y, matrix(P$fit + P$se, n, n), 
                    alpha=0.5, color="#CCCCFF",front="lines")
